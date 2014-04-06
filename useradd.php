@@ -18,7 +18,7 @@ $password=$_POST[password];
 $result =mysqli_query($con,"INSERT INTO picup_users (username,password) VALUES ('$name', '$password')");
 $result1 = mysqli_query($con,"SELECT * FROM picup_users WHERE username = '$name' AND password= '$password'");
 
-while($row = mysqli_fetch_array($result))
+while($row = mysqli_fetch_array($result1))
   	$user = $row['id'];
 
 
@@ -26,7 +26,7 @@ mysqli_close($con);
 if ($result == true) {
 	$_SESSION["login"]= 1;
 	$_SESSION["user_id"] = (int) $user;
-	header('Refresh: 3;home.php');
+	header('Refresh: 2;home.php');
 }
 
 ?>
